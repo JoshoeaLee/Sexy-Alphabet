@@ -1,0 +1,36 @@
+html{
+    background: url("IMG_1137.JPG");
+    background-size: cover;
+}
+
+.keys{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+div>div{
+    border: .4rem solid black;
+    border-radius: .5rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem .5rem;
+    transition: all .07s;
+    width: 10rem;
+    text-align: center;
+    color: orange;
+    background: rgba(0, 0, 0, 0.4);
+    text-shadow: 0 0 .5rem black;
+
+}
+
+.playing{
+
+transform: scale(1.07);
+border-color: orange;
+
+}
+
+
+

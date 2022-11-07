@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="style.css">
+    <title>Josh's Sexy Alphabet</title>
+</head>
+<body>
+    
+<div class="keys">
+
+   <div data-key="65">
+     <kbd>A</kbd>
+   </div>
+   <div data-key="66">
+    <kbd>B</kbd>
+   </div>
+   <div data-key="67">
+    <kbd>C</kbd>
+   </div>
+   <div data-key="68">
+    <kbd>D</kbd>
+   </div>
+   <div data-key="69">
+    <kbd>E</kbd>
+   </div>
+   <div data-key="70">
+    <kbd>F</kbd>
+  </div>
+  <div data-key="71">
+    <kbd>G</kbd>
+  </div>
+
+</div>
+
+<audio data-key="65" src="A.wav"></audio>
+<audio data-key="66" src="B.wav"></audio>
+ <audio data-key="67" src="C.wav"></audio>
+<audio data-key="68" src="D.wav"></audio>
+<audio data-key="69" src="E.wav"></audio>
+<audio data-key="70" src="F.wav"></audio>
+<audio data-key="71" src="G.wav"></audio> 
+
+
+<script>
+    window.addEventListener("keydown", function(e){
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const key = document.querySelector(`div>div[data-key="${e.keyCode}"]`);
+        if(!audio) return; //If no audio then nothing happens
+        audio.currentTime = 0;
+        audio.play();
+        console.log(key);
+        key.classList.add("playing");
+    });
+
+    const keys = document.querySelectorAll("div>div");
+  keys.forEach(key => key.addEventListener("transitionend", (event)=>{
+     if(event.propertyName !== "transform"){
+      return;
+     } 
+     console.log(event.currentTarget);
+     event.currentTarget.classList.remove("playing");
+
+  }));
+          
+</script>
+
+</body>
+</html>
